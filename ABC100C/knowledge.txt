@@ -1,0 +1,56 @@
+
+だめ回答のバックアップ
+# -*- coding: utf-8 -*-
+
+def check_k(x):
+    if x % 2 == 1:
+        return 1
+    else:
+        return 0
+
+
+def keisan(y, z):
+    global f
+    if y == 0 and f == 0:
+        f = 1
+        return int(z / 2)
+    else:
+        return z * 3
+
+
+N = int(input())
+
+m = 0
+a = list(map(int, input().split(" ")))
+r = 0
+
+while 1:
+    #print(a)
+    a = sorted(a, reverse=True)
+    all_k = list(map(check_k, a))
+    if sum(all_k) == N:
+        print(r)
+        exit()
+    else:
+        max_k_index = all_k.index(0)
+        f = 0
+        a = list(map(keisan, all_k, a))
+        r += 1
+
+
+
+"""
+    print(max_k_index)
+    if sum(all_k) == N:
+        print(r)
+        exit()
+    else:
+        for i in range(N):
+            if (a[i] % 2) == 0 and f == 0:
+                a[i] = int(a[i] / 2)
+                f = 1
+            else:
+                a[i] = a[i] * 3
+
+        r += 1
+"""
