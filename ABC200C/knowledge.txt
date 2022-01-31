@@ -1,0 +1,17 @@
+# TLE
+
+N = int(input())
+
+A = list(map(int, input().split(" ")))
+
+c = 0
+for i in range(N):
+    t = A[i]
+    for j in range(i, N):
+        if i != j:
+            #print(A[i], A[j])
+            x = A[i] - A[j]
+            if (x % 200) == 0:
+                c += 1
+
+print(c)
